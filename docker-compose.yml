@@ -1,0 +1,35 @@
+version: '3.3'
+
+services:
+  salt:
+    hostname: salt
+    image: salt-master:latest
+    build:
+      context: './master'
+      args:
+        #- REGISTRY=registry.hub.docker.com
+        - REGISTRY=dev-brm.so.kadaster.nl:5000
+
+    ports:
+      - "4505:4505"
+      - "4506:4506"
+
+    environment:
+      - LOG_LEVEL=warning
+
+    volumes:
+      - './master/salt:/srv/salt'
+
+  minion:
+    image: salt-minion:latest
+    build:
+      context: './minion'
+      args:
+        #- REGISTRY=registry.hub.docker.com
+        - REGISTRY=dev-brm.so.kadaster.nl:5000
+
+    environment:
+      - LOG_LEVEL=warning
+
+    volumes:
+    - './minion/salt:/srv/salt'
