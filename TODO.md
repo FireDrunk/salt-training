@@ -1,0 +1,6 @@
+- Extra minion
+- Pillar data koppelen in Docker Container
+- Pillar Lab
+- Salt Mine Lab
+- Beacons uitleggen
+- Reactors uitleggen
