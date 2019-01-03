@@ -14,14 +14,14 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-    export http_proxy="http://145.77.103.133:8080"
-    export https_proxy="http://145.77.103.133:8080"
+    #export http_proxy="http://145.77.103.133:8080"
+    #export https_proxy="http://145.77.103.133:8080"
     apt-get update
 
     # Install Docker
     apt install -y docker.io docker-compose
     mkdir -p /etc/systemd/system/docker.service.d
-    cp /vagrant/http-proxy.conf /etc/systemd/system/docker.service.d/
+    #cp /vagrant/http-proxy.conf /etc/systemd/system/docker.service.d/
     systemctl daemon-reload
     systemctl enable docker
     systemctl start docker
