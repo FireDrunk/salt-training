@@ -22,6 +22,7 @@ Vagrant.configure("2") do |config|
     apt install -y docker.io docker-compose
     mkdir -p /etc/systemd/system/docker.service.d
     #cp /vagrant/http-proxy.conf /etc/systemd/system/docker.service.d/
+    rm /etc/systemd/system/docker.service.d/http-proxy.conf
     systemctl daemon-reload
     systemctl enable docker
     systemctl start docker
