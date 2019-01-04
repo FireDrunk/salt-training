@@ -13,9 +13,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
 
     ### PROXY ###
-    #rm /etc/systemd/system/docker.service.d/http-proxy.conf
-    export http_proxy="http://145.77.103.133:8080"
-    export https_proxy="http://145.77.103.133:8080"
+    rm /etc/systemd/system/docker.service.d/http-proxy.conf
+    #export http_proxy="http://145.77.103.133:8080"
+    #export https_proxy="http://145.77.103.133:8080"
     ### PROXY ###
 
     apt-get -qq update
