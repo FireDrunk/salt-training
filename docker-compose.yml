@@ -19,17 +19,32 @@ services:
 
     volumes:
       - './master/salt:/srv/salt'
+      - './master/pillar:/srv/pillar'
 
-  minion:
-    image: salt-minion:latest
-    build:
-      context: './minion'
-      args:
-        #- REGISTRY=registry.hub.docker.com
-        - REGISTRY=dev-brm.so.kadaster.nl:5000
-
-    environment:
-      - LOG_LEVEL=warning
-
-    volumes:
-    - './minion/salt:/srv/salt'
+#  minion1:
+#    image: salt-minion:latest
+#    build:
+#      context: './minion'
+#      args:
+#        #- REGISTRY=registry.hub.docker.com
+#        - REGISTRY=dev-brm.so.kadaster.nl:5000
+#
+#    environment:
+#      - LOG_LEVEL=warning
+#
+#    volumes:
+#    - './minion/salt:/srv/salt'
+#
+#  minion2:
+#    image: salt-minion:latest
+#    build:
+#      context: './minion'
+#      args:
+#        #- REGISTRY=registry.hub.docker.com
+#        - REGISTRY=dev-brm.so.kadaster.nl:5000
+#
+#    environment:
+#      - LOG_LEVEL=warning
+#
+#    volumes:
+#    - './minion/salt:/srv/salt'

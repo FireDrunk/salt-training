@@ -24,12 +24,8 @@ RUN apt install -y \
   salt-ssh \
   salt-cloud
 
-# Volumes
-VOLUME "/etc/salt/pki"
-VOLUME "/var/cache/salt"
-VOLUME "/var/logs/salt"
-VOLUME "/etc/salt/master.d"
-VOLUME "/srv/salt"
+# Copy Master Config
+COPY autoaccept.conf /etc/salt/master.d/autoaccept.conf
 
 # Pots
 EXPOSE 4505 4506
