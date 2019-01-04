@@ -1,5 +1,4 @@
-ARG REGISTRY
-FROM $REGISTRY/debian:stretch
+FROM debian:stretch
 
 # Maintainer
 MAINTAINER Thijs Cramer <thijs.cramer@gmail.com>

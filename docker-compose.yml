@@ -6,9 +6,6 @@ services:
     image: salt-master:latest
     build:
       context: './master'
-      args:
-        - REGISTRY=registry.hub.docker.com
-        #- REGISTRY=dev-brm.so.kadaster.nl:5000
 
     ports:
       - "4505:4505"

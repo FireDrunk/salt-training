@@ -11,12 +11,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-
     ### PROXY ###
-    rm /etc/systemd/system/docker.service.d/http-proxy.conf
-    #export http_proxy="http://145.77.103.133:8080"
-    #export https_proxy="http://145.77.103.133:8080"
-    ### PROXY ###
+    #rm /etc/systemd/system/docker.service.d/http-proxy.conf
+    export http_proxy="http://145.77.103.133:8080"
+    export https_proxy="http://145.77.103.133:8080"
 
     apt-get -qq update
 
@@ -37,6 +35,12 @@ Vagrant.configure("2") do |config|
     master.vm.hostname = "master"
     master.vm.network "private_network", ip: "192.168.50.5"
     master.vm.provision "shell", inline: <<-SHELL
+
+      ### PROXY ###
+      #rm /etc/systemd/system/docker.service.d/http-proxy.conf
+      export http_proxy="http://145.77.103.133:8080"
+      export https_proxy="http://145.77.103.133:8080"
+
       # Install Docker
       apt-get install -qq -y docker.io docker-compose
       mkdir -p /etc/systemd/system/docker.service.d
