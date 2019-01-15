@@ -5,8 +5,8 @@ FROM $REGISTRY/debian:stretch
 MAINTAINER Thijs Cramer <thijs.cramer@gmail.com>
 
 # Prerequisites
-ENV http_proxy "http://145.77.103.133:8080"
-ENV https_proxy "http://145.77.103.133:8080"
+#ENV http_proxy "http://145.77.103.133:8080"
+#ENV https_proxy "http://145.77.103.133:8080"
 
 RUN apt update && apt install -y \
   wget \
